@@ -22,7 +22,7 @@
             event.preventDefault();
             const anchor = document.createElement("a");
             const phoneNumberEncoded = encodeURIComponent(phoneNumberEl.value);
-            const href = `${document.location.protocol}${document.location.host}/twiml/instructions/call/${phoneNumberEncoded}`
+            const href = `${document.location.protocol}//${document.location.host}/twiml/instructions/call/${phoneNumberEncoded}`
             anchor.innerText = href;
             anchor.href = href;
             anchor.target = '_blank';
