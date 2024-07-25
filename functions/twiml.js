@@ -4,12 +4,10 @@ exports.handler = async function(event, context) {
 
   console.log(`Received request at ${event.path}`)
 
-  const xmlResponse = `
-    <?xml version="1.0" encoding="UTF-8"?>
+  const xmlResponse = `<?xml version="1.0" encoding="UTF-8"?>
     <Response>
       <Say>The dynamic value is ${dynamicValue}</Say>
-    </Response>
-  `;
+    </Response>`;
 
   console.log(`Replying with ${xmlResponse}`)
   return {
