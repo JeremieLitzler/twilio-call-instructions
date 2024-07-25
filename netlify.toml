@@ -1,0 +1,8 @@
+[build]
+  functions = "functions"
+  publish = "public"
+
+[[redirects]]
+  from = "/twiml/*"
+  to = "/.netlify/functions/twiml/:splat"
+  status = 200
