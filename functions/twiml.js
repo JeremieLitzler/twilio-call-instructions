@@ -1,7 +1,7 @@
 exports.handler = async function(event, context) {
   const path = event.path.split('/');
-  const dynamicValue = path[path.length - 1];
-
+  const encodedValue = path[path.length - 1];
+  const dynamicValue = decodeURIComponent(encodedValue);
   console.log(`Received request at ${event.path}`)
 
   const xmlResponse = `<?xml version="1.0" encoding="UTF-8"?>
