@@ -6,15 +6,10 @@ exports.handler = async function(event, context) {
 
   const xmlResponse = `<?xml version="1.0" encoding="UTF-8"?>
     <Response>
-      <Say>
-        <speak-as interpret-as="telephone">
-          The caller ${dynamicValue}  has called the On-call team for a problem. 
-          A SMS was sent to you to confirm you're calling the person back. 
-          The message contains the caller's number.
-          Thanks.
-        </speak-as>
-      </Say>
-    </Response>`;
+    <Say>
+        The caller <speak-as interpret-as="telephone">${dynamicValue}</speak-as> has called the On-call team for a problem. A SMS was sent to you to confirm you're calling the person back. The message contains the caller's number. Thanks.
+    </Say>
+</Response>`;
 
   console.log(`Replying with ${xmlResponse}`)
   return {
