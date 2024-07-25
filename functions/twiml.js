@@ -2,6 +2,8 @@ exports.handler = async function(event, context) {
   const path = event.path.split('/');
   const dynamicValue = path[path.length - 1];
 
+  console.log(`Received request at ${event.path}`)
+
   const xmlResponse = `
     <?xml version="1.0" encoding="UTF-8"?>
     <Response>
@@ -9,6 +11,7 @@ exports.handler = async function(event, context) {
     </Response>
   `;
 
+  console.log(`Replying with ${xmlResponse}`)
   return {
     statusCode: 200,
     headers: {
