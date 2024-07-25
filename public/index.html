@@ -8,5 +8,26 @@
 <body>
     <h1>TwiML Response App</h1>
     <p>Use the /twiml/instructions/call/{dynamic_value} endpoint to get TwiML responses.</p>
+    <form>
+        <label for="phoneNumber">
+            Enter the number:
+            <input type="tel" name="phoneNumber" id="phoneNumber">
+        </label>
+    </form>
+    <section class="link"></section>
+    <script>
+        const phoneNumberEl = document.querySelector("[name='phoneNumber']")
+        const link = document.querySelector(".link")
+        phoneNumberEl.addEventListener("keyup", () => {
+            event.preventDefault();
+            const anchor = document.createElement("a");
+            const phoneNumberEncoded = encodeURIComponent(phoneNumberEl.value);
+            const href = `${document.location.protocol}://${document.location.host}/twiml/instructions/call/${phoneNumberEncoded}`
+            anchor.innerText = href;
+            anchor.href = href;
+            anchor.target = '_blank';
+            link.appendChild(anchor);
+        })
+    </script>
 </body>
 </html>
